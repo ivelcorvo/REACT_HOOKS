@@ -39,10 +39,10 @@ const NavBar = () => {
                             <NavLink to={`/hook_usestate`} className={({isActive})=> isActive ?classNavLinkActive :classNavLink}>useState</NavLink>
                         </li>
                         <li className={classLiMenu}>
-                            <NavLink to={`/hook_useeffect`} className={({isActive})=> isActive ?classNavLinkActive :classNavLink}>useEffect</NavLink>
+                            <NavLink to={`/hook_usereducer`} className={({isActive})=> isActive ?classNavLinkActive :classNavLink}>useReducer</NavLink>
                         </li>
                         <li className={classLiMenu}>
-                            <NavLink to={`/hook_usereducer`} className={({isActive})=> isActive ?classNavLinkActive :classNavLink}>useReducer</NavLink>
+                            <NavLink to={`/hook_useeffect`} className={({isActive})=> isActive ?classNavLinkActive :classNavLink}>useEffect</NavLink>
                         </li>
                     </ul>
                 </nav>
