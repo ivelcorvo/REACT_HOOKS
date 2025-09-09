@@ -9,13 +9,16 @@ import { BrowserRouter,Routes,Route } from "react-router-dom";
   import NavBar from "./components/NavBar";
 
 // #### HOOKS ####
+import { useTemaContext } from "./hooks/useTemaContext";
 
 // ##### CONTEXT #####
 
 function App() {
+  // #### TEMA ####
+    const {temaEscuro} = useTemaContext();
+
   return (
-    <div className="flex flex-col bg-gray-900 min-h-screen p-0 m-0 text-gray-300 ">
-      
+    <div className={`${(temaEscuro)?"bg-gray-900 text-gray-300":"bg-gray-300 text-gray-800"} flex flex-col min-h-screen p-0 m-0`}>
       <BrowserRouter>
         <NavBar></NavBar>
         <Routes>

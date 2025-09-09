@@ -1,30 +1,40 @@
 import { NavLink,useLocation } from "react-router-dom";
 import { useState,useEffect } from "react";
+import { useTemaContext } from "../hooks/useTemaContext";
 
 const NavBar = () => {
 
-    const [collapse, setCollapse] = useState(false);
-    const location                = useLocation();
+    // #### TEMA ####
+        const {temaEscuro,setTemaEscuro} = useTemaContext();
 
-    const classLiMenu        = "hover:bg-gray-700 transition duration-500";
-    const classNavLink       = "block w-full p-3 ";
-    const classNavLinkActive = "block w-full p-3 font-bold";
+    // #### CLASSES ####
+        const classLiMenu        = (temaEscuro)?"hover:bg-gray-700 transition duration-500":"hover:bg-gray-300 transition duration-500";
+        const classNavLink       = "block w-full p-3 ";
+        const classNavLinkActive = "block w-full p-3 font-bold";
 
-    useEffect(()=>{
-        setCollapse(false)
-    },[location]);
+    // #### COLLAPSE BTN MENU ####
+        const [collapse, setCollapse] = useState(false);
+        const location                = useLocation();
+        useEffect(()=>{
+            setCollapse(false)
+        },[location]);
 
     return (
-        <>
-            <header className="bg-gray-800 shadow-md relative z-30">
+        <>        
+            <header className={`${(temaEscuro)?"bg-gray-800":"bg-gray-100"} shadow-md relative z-30`}>
                 <nav className="w-full px-3 py-2 z-20">
-                    <button 
-                        className="bg-gray-600 hover:bg-gray-700 rounded-xl shadow-md px-3 py-1 hover:scale-110 hover:cursor-pointer" 
-                        onClick={() => { setCollapse(!collapse) }}
-                    >
-                        &#9776;
-                    </button>
-                    <ul className={`fixed flex flex-col top-12 left-0 h-full w-64 bg-gray-800 shadow-md transition-transform duration-500 z-30 ${collapse ? "translate-x-0" : "-translate-x-full"}`}>
+                    <div className="flex flex-row items-center justify-between">
+                        <button 
+                            className="bg-gray-600 hover:bg-gray-700 rounded-xl shadow-md px-3 py-1 hover:scale-110 hover:cursor-pointer text-gray-300" 
+                            onClick={() => { setCollapse(!collapse) }}
+                        >
+                            &#9776;
+                        </button>
+                        <button onClick={()=>{setTemaEscuro(!temaEscuro)}} className="bg-gray-600 hover:bg-gray-700 rounded-xl shadow-md px-3 py-1 hover:scale-110 hover:cursor-pointer text-gray-300">
+                            tema
+                        </button>
+                    </div>
+                    <ul className={`${(temaEscuro)?"bg-gray-800":"bg-gray-100"} fixed flex flex-col top-12 left-0 h-full w-64 shadow-md transition-transform duration-500 z-30 ${collapse ? "translate-x-0" : "-translate-x-full"}`}>
                         <li className={classLiMenu}>
                             <NavLink to={`/hook_usestate`} className={({isActive})=> isActive ?classNavLinkActive :classNavLink}>useState</NavLink>
                         </li>
