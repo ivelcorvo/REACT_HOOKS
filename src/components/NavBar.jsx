@@ -36,6 +36,9 @@ const NavBar = () => {
                     </div>
                     <ul className={`${(temaEscuro)?"bg-gray-800":"bg-gray-100"} fixed flex flex-col top-12 left-0 h-full w-64 shadow-md transition-transform duration-500 z-30 ${collapse ? "translate-x-0" : "-translate-x-full"}`}>
                         <li className={classLiMenu}>
+                            <NavLink to={`/`} className={({isActive})=> isActive ?classNavLinkActive :classNavLink}>Home</NavLink>
+                        </li>
+                        <li className={classLiMenu}>
                             <NavLink to={`/hook_usestate`} className={({isActive})=> isActive ?classNavLinkActive :classNavLink}>useState</NavLink>
                         </li>
                         <li className={classLiMenu}>

@@ -1,6 +1,7 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 
 // #### PAGES ####
+  import Home from "./pages/Home";
   import HookUseState from "./pages/HookUseState";
   import HookUseEffect from "./pages/HookUseEffect";
   import HookUseReducer from "./pages/HookUseReducer";
@@ -9,7 +10,7 @@ import { BrowserRouter,Routes,Route } from "react-router-dom";
   import NavBar from "./components/NavBar";
 
 // #### HOOKS ####
-import { useTemaContext } from "./hooks/useTemaContext";
+  import { useTemaContext } from "./hooks/useTemaContext";
 
 // ##### CONTEXT #####
 
@@ -24,6 +25,7 @@ function App() {
         <div className="px-3 py-20">
           <div className={`${(temaEscuro)?"bg-gray-800":"bg-gray-100"} max-w-150 rounded-md shadow-xl mx-auto p-3 md:p-10`}>
             <Routes>
+              <Route path="/"                element={<Home/>}></Route>
               <Route path="/hook_usestate"   element={<HookUseState/>}></Route>
               <Route path="/hook_useeffect"  element={<HookUseEffect/>}></Route>
               <Route path="/hook_usereducer" element={<HookUseReducer/>}></Route>
