@@ -8,7 +8,7 @@ const HookUseState = () => {
     <div>
 
       <h1 className="text-xl font-bold mb-5">useState</h1>
-      <ul className="list-disc">
+      <ul className="list-disc list-inside">
         <li>O principal próposito é gerenciar valores.</li>
         <li>Podemos consultar um valor e alterar.</li>
         <li>Isso permite re-renderizar um componente, o que não acontece com a manipulação de variáveis.</li>
@@ -17,7 +17,7 @@ const HookUseState = () => {
       <div>
 
         <h1 className="text-xl font-bold my-5">Exemplo:</h1>
-        <ul className="list-disc">
+        <ul className="list-disc list-inside">
           <li>const [nome,setNome] = useState("Levi");</li>
           <li>No onClick do botão {`()=>{setNome(nome==="Levi"?"Jader":"Levi")`}</li>
           <li>No onClick do botão {`value={nome} onChange={(e)=>{setNome(e.target.value)}`}</li>

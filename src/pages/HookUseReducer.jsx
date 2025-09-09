@@ -34,7 +34,7 @@ const HookUseReducer = () => {
     <div>
 
       <h1 className="text-xl font-bold mb-5">useReducer</h1>
-      <ul className="list-disc">
+      <ul className="list-disc list-inside">
         <li>Semelhante ao useState, porém temos a possibilidade de executar uma função na hora da alteração do valor.</li>
         <li>O useReducer recebe uma valor para gerenciar e uma função para alterar este valor.</li>
         <li>O estado é atualizado por uma função reducer, que decide como mudar o estado baseado na ação.</li>
@@ -50,7 +50,7 @@ const HookUseReducer = () => {
         <div className="w-130 ">
           <img src="/cod_reducer_function_tasks.png" alt="cod_reducer_function_tasks" className="rounded-md shadow-md"/>
         </div>
-        <ul className="list-disc">
+        <ul className="list-disc list-inside">
           <li>const [tasks, dispatch] = useReducer(tasksReducer,initialTasks);</li>
           <li>No onClick do botão Adicionar {`()=>{dispatch({type:"ADICIONAR",texto})}`}</li>
           <li>No onClick do botão Altera {`()=>{dispatch({type:"ALTERAR",id:task.id})}`}</li>
