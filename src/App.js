@@ -21,8 +21,8 @@ function App() {
     <div className={`${(temaEscuro)?"bg-gray-900 text-gray-300":"bg-gray-300 text-gray-800"} flex flex-col min-h-screen p-0 m-0`}>
       <BrowserRouter>
         <NavBar></NavBar>
-        <div className="px-5 py-20">
-          <div className={`${(temaEscuro)?"bg-gray-800":"bg-gray-100"} max-w-150 rounded-md shadow-xl mx-auto p-10`}>
+        <div className="px-3 py-20">
+          <div className={`${(temaEscuro)?"bg-gray-800":"bg-gray-100"} max-w-150 rounded-md shadow-xl mx-auto p-3 md:p-10`}>
             <Routes>
               <Route path="/hook_usestate"   element={<HookUseState/>}></Route>
               <Route path="/hook_useeffect"  element={<HookUseEffect/>}></Route>
