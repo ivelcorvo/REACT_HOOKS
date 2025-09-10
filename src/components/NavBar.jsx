@@ -31,7 +31,7 @@ const NavBar = () => {
                             &#9776;
                         </button>
                         <button onClick={()=>{setTemaEscuro(!temaEscuro)}} className="bg-gray-600 hover:bg-gray-700 rounded-xl shadow-md px-3 py-1 hover:scale-110 hover:cursor-pointer text-gray-300">
-                            tema
+                            {(temaEscuro)?<i class="fa-solid fa-sun"></i>:<i class="fa-solid fa-moon"></i>}
                         </button>
                     </div>
                     <ul className={`${(temaEscuro)?"bg-gray-800":"bg-gray-100"} fixed flex flex-col top-12 left-0 h-full w-64 shadow-md transition-transform duration-500 z-30 ${collapse ? "translate-x-0" : "-translate-x-full"}`}>
