@@ -21,7 +21,7 @@ const NavBar = () => {
 
     return (
         <>        
-            <header className={`${(temaEscuro)?"bg-gray-800":"bg-gray-100"} shadow-md relative z-30`}>
+            <header className={`${(temaEscuro)?"bg-gray-800":"bg-gray-100"} shadow-md fixed w-full z-30`}>
                 <nav className="w-full px-3 py-2 z-20">
                     <div className="flex flex-row items-center justify-between">
                         <button 
@@ -31,7 +31,7 @@ const NavBar = () => {
                             &#9776;
                         </button>
                         <button onClick={()=>{setTemaEscuro(!temaEscuro)}} className="bg-gray-600 hover:bg-gray-700 rounded-xl shadow-md px-3 py-1 hover:scale-110 hover:cursor-pointer text-gray-300">
-                            {(temaEscuro)?<i class="fa-solid fa-sun"></i>:<i class="fa-solid fa-moon"></i>}
+                            {(temaEscuro)?<i className="fa-solid fa-sun"></i>:<i className="fa-solid fa-moon"></i>}
                         </button>
                     </div>
                     <ul className={`${(temaEscuro)?"bg-gray-800":"bg-gray-100"} fixed flex flex-col top-12 left-0 h-full w-64 shadow-md transition-transform duration-500 z-30 ${collapse ? "translate-x-0" : "-translate-x-full"}`}>
@@ -46,6 +46,9 @@ const NavBar = () => {
                         </li>
                         <li className={classLiMenu}>
                             <NavLink to={`/hook_useeffect`} className={({isActive})=> isActive ?classNavLinkActive :classNavLink}>useEffect</NavLink>
+                        </li>
+                        <li className={classLiMenu}>
+                            <NavLink to={`/hook_usecontext`} className={({isActive})=> isActive ?classNavLinkActive :classNavLink}>useContext</NavLink>
                         </li>
                     </ul>
                 </nav>

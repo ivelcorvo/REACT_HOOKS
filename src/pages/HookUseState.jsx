@@ -18,22 +18,27 @@ const HookUseState = () => {
 
         <h1 className="text-xl font-bold my-5">Exemplo:</h1>
         <ul className="list-disc list-inside">
-          <li>const [nome,setNome] = useState("Levi");</li>
-          <li>No onClick do botão {`()=>{setNome(nome==="Levi"?"Jader":"Levi")`}</li>
-          <li>No onClick do botão {`value={nome} onChange={(e)=>{setNome(e.target.value)}`}</li>
+          <p className="my-2 font-bold">const [nome,setNome] = useState("Levi");</p>
+          <p className="my-2">No onClick do botão: </p>
+          <p className="my-2 font-bold">{`()=>{setNome(nome==="Levi"?"Jader":"Levi")`}</p>
+          <p className="my-2">No onClick do botão: </p>
+          <p className="my-2 font-bold">{`value={nome} onChange={(e)=>{setNome(e.target.value)}`}</p>
         </ul>
 
         <p className="my-5 font-bold">{nome}</p>
-        <button onClick={()=>{setNome(nome==="Levi"?"Jader":"Levi")}} className="bg-gray-600 hover:bg-gray-700 rounded-xl shadow-md px-3 py-1 hover:scale-110 hover:cursor-pointer text-gray-300" >
-          Mudar nome
-        </button>
-        <input 
-          type="text" 
-          placeholder="nome"
-          value={nome}
-          onChange={(e)=>{setNome(e.target.value)}}
-          className="border-1 rounded-xl px-3 py-1 ms-3"
-        />
+        
+        <div className="flex flex-col md:flex-row justify-between">
+          <input 
+            type="text" 
+            placeholder="nome"
+            value={nome}
+            onChange={(e)=>{setNome(e.target.value)}}
+            className="border-1 rounded-xl px-3 py-1 mb-2"
+          />
+          <button onClick={()=>{setNome(nome==="Levi"?"Jader":"Levi")}} className="bg-gray-600 hover:bg-gray-700 rounded-xl shadow-md px-3 py-1 hover:cursor-pointer text-gray-300" >
+            Mudar nome
+          </button>
+        </div>
 
       </div>
 

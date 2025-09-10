@@ -5,6 +5,7 @@ import { BrowserRouter,Routes,Route,Navigate } from "react-router-dom";
   import HookUseState from "./pages/HookUseState";
   import HookUseEffect from "./pages/HookUseEffect";
   import HookUseReducer from "./pages/HookUseReducer";
+  import HookUseContext from "./pages/HookUseContext";
 
 // #### COMPONENTS ####
   import NavBar from "./components/NavBar";
@@ -30,6 +31,7 @@ function App() {
               <Route path="/hook_usestate"   element={<HookUseState/>}></Route>
               <Route path="/hook_useeffect"  element={<HookUseEffect/>}></Route>
               <Route path="/hook_usereducer" element={<HookUseReducer/>}></Route>
+              <Route path="/hook_usecontext" element={<HookUseContext/>}></Route>
               <Route path="*"                element={<Navigate to="/" />} />
             </Routes>
           </div>

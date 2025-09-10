@@ -44,48 +44,54 @@ const HookUseReducer = () => {
         <li>Ele pode também carregar mais informações (payload), como id, texto, valor, etc.</li>
       </ul>
 
-      <div className="overflow-x-scroll md:overflow-hidden">
+      <div>
 
         <h1 className="text-xl font-bold my-5">Exemplo:</h1>
-        <div className="w-130 ">
-          <img src="/cod_reducer_function_tasks.png" alt="cod_reducer_function_tasks" className="rounded-md shadow-md"/>
+        <div className="w-full overflow-x-auto">
+          <img src={process.env.PUBLIC_URL + "/cod_reducer_function_tasks.png"}  alt="cod_reducer_function_tasks" className="min-w-max block shadow-md rounded-md"/>
         </div>
-        <ul className="list-disc list-inside">
-          <li>const [tasks, dispatch] = useReducer(tasksReducer,initialTasks);</li>
-          <li>No onClick do botão Adicionar {`()=>{dispatch({type:"ADICIONAR",texto})}`}</li>
-          <li>No onClick do botão Altera {`()=>{dispatch({type:"ALTERAR",id:task.id})}`}</li>
-          <li>No onClick do botão Excluir {`()=>{dispatch({type:"REMOVER",id:task.id})}`}</li>
-        </ul>
-        
-        <h3 className="text-xl mt-5">Tarefas</h3>
-        <form onSubmit={handleSubimit}>
-          <div className="flex flex-row justify-between my-5">          
-            <input 
-              type="text" 
-              placeholder="Digite a tarefa"
-              value={texto}
-              onChange={(e)=>{setTexto(e.target.value)}}
-              className="border-1 rounded-xl px-3 py-1 ms-3"
-            />
-            <button type="submit" className="bg-gray-600 hover:bg-gray-700 rounded-xl shadow-md px-3 py-1 hover:scale-110 hover:cursor-pointer text-gray-300" >
-              Adicionar
-            </button>
-          </div>
-        </form>
-        {tasks.map((task)=>(
-          <div key={task.id} className="flex flex-row justify-between">
-            <p className={`${(task.feito)?"line-through":""}`}>{task.texto} </p>
-            <div className="mb-2">
-              <button onClick={()=>{dispatch({type:"ALTERAR",id:task.id})}} className="bg-gray-600 hover:bg-gray-700 rounded-xl shadow-md px-3 py-1 hover:scale-110 hover:cursor-pointer text-gray-300 m-1" >
-                Altera
-              </button>
-              <button onClick={()=>{dispatch({type:"REMOVER",id:task.id})}} className="bg-gray-600 hover:bg-gray-700 rounded-xl shadow-md px-3 py-1 hover:scale-110 hover:cursor-pointer text-gray-300 m-1" >
-                Excluir
+
+        <div>
+          <p className="my-2 font-bold">const [tasks, dispatch] = useReducer(tasksReducer,initialTasks);</p>
+          <p className="my-2">No onClick do botão Adicionar: </p>
+          <p className="my-2 font-bold">{`()=>{dispatch({type:"ADICIONAR",texto})}`}</p>
+          <p className="my-2">No onClick do botão Concluir/Desfazer: </p>
+          <p className="my-2 font-bold">{`()=>{dispatch({type:"ALTERAR",id:task.id})}`}</p>
+          <p className="my-2">No onClick do botão Excluir: </p>
+          <p className="my-2 font-bold">{`()=>{dispatch({type:"REMOVER",id:task.id})}`}</p>
+        </div>
+
+        <div>
+          <h3 className="text-xl mt-10">Tarefas</h3>
+          <form onSubmit={handleSubimit}>
+            <div className="flex flex-col md:flex-row justify-between my-5">          
+              <input 
+                type="text" 
+                placeholder="Digite a tarefa"
+                value={texto}
+                onChange={(e)=>{setTexto(e.target.value)}}
+                className="border-1 rounded-xl px-3 py-1 mb-2"
+              />
+              <button type="submit" className="bg-gray-600 hover:bg-gray-700 rounded-xl shadow-md px-3 py-1 hover:scale-110 hover:cursor-pointer text-gray-300" >
+                Adicionar
               </button>
             </div>
-          </div>
-        ))}
-
+          </form>
+          {tasks.map((task)=>(
+            <div key={task.id} className="flex flex-col md:flex-row justify-between border-b-1">
+              <p className={`${(task.feito)?"line-through":""}`}>{task.texto} </p>
+              <div className="mb-2">
+                <button onClick={()=>{dispatch({type:"ALTERAR",id:task.id})}} className="bg-gray-600 hover:bg-gray-700 rounded-xl shadow-md px-3 py-1 hover:scale-110 hover:cursor-pointer text-gray-300 m-1" >
+                  {(task.feito)?"Desfazer":"Concluir"}
+                </button>
+                <button onClick={()=>{dispatch({type:"REMOVER",id:task.id})}} className="bg-gray-600 hover:bg-gray-700 rounded-xl shadow-md px-3 py-1 hover:scale-110 hover:cursor-pointer text-gray-300 m-1" >
+                  Excluir
+                </button>
+              </div>
+            </div>
+          ))}  
+        </div>
+          
       </div>
 
     </div>
